@@ -3,6 +3,7 @@ function CriarCertificado {
     # Código para criar o certificado
   $ipv4Address = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress
   Write-Host "Endereço IPv4 encontrado: $ipv4Address , coloque este ip no campo de Endereço do servidor local em minhas configurações"
+  Write-Host "" 
     # Comando para criar um certificado usando o endereço IPv4
     $certificateParams = @{
         NotBefore      = (Get-Date)
@@ -18,8 +19,12 @@ function CriarCertificado {
     }
 
     New-SelfSignedCertificate @certificateParams
+	Write-Host ""
+    Write-Host "Certificado criado com sucesso."
+	Write-Host ""
+	Write-Host "Agora vá em gerenciar certificados do computador e copie ele para a pasta Autoridades de Certificação Raiz >Certificados" 
+	Write-Host ""
 
-    Write-Host "Certificado criado com sucesso. Agora vá em gerenciar certificados do computador e copie ele para a pasta Autoridades de Certificação Raiz > Certificados "
 } else {
     Write-Host "Nenhum endereço IPv4 encontrado na rede atual."
 }
@@ -147,7 +152,9 @@ function IniciarServico {
     }
 }
 
-do {
+do 
+{
+
     Clear-Host
     Write-Host "Menu Principal"
     Write-Host "1. Criar Certificado"
@@ -173,5 +180,6 @@ do {
 
     Read-Host "Pressione Enter para continuar..."
 } while ($escolha -ne "7")
+
 
 Write-Host "Saindo do programa."
