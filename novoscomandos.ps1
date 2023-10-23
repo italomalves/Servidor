@@ -167,7 +167,7 @@ do {
         "4" { CriarAppSettingsSemLocalId }
         "5" { CriarAppSettingsComLocalId }
         "6" { IniciarServico }
-        "7" { break }
+        "7" { exit }
         default { Write-Host "Opção inválida. Tente novamente." }
     }
 
