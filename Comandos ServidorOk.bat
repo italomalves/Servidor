@@ -40,9 +40,9 @@ goto Downloads
 :N2
 cls
 echo Link .Net
-ECHO 1 - ASP.NET Core 2.2 Runtime (v2.2.8)
-ECHO 2 - ASP.NET Core 5.0 Runtime (v5.0.7)
-ECHO 3 - .NET Framework 4.7.2
+ECHO 1 - ASP.NET Core 5.0 Runtime (v2.2.8)
+ECHO 2 - ASP.NET Core 7.0 Runtime (v5.0.7)
+ECHO 3 - .NET Framework 4.8.1
 ECHO 4 - Menu Inicial
 echo.
 set /p opcao= Digite a opcao desejada: 
@@ -58,20 +58,19 @@ goto Inicio
 
 :M1
 cls
-start https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-aspnetcore-2.2.8-windows-x64-installer usp=sharing
+start https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-aspnetcore-5.0.7-windows-x64-installer usp=sharing
 pause
 goto Link .Net
 
 :M2
 cls
-start https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-aspnetcore-5.0.7-windows-x64-installer
-usp=sharing
+start https://dotnet.microsoft.com/pt-br/download/dotnet/thank-you/runtime-aspnetcore-7.0.13-windows-x64-installer usp=sharing
 pause
 goto Link .Net
 
 :M3
 cls
-start https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net472-web-installer usp=sharing
+start https://dotnet.microsoft.com/pt-br/download/dotnet-framework/thank-you/net481-web-installer usp=sharing
 pause
 goto Link .Net
 
@@ -111,6 +110,3 @@ echo.
 echo Operacao executada com sucesso!
 echo.
 pause
-
-
-
