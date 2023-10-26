@@ -41,7 +41,7 @@ function CriarServico {
     New-Service -Name MeepClientHost -BinaryPathName "C:\ClientHost\ClientHost.exe" -Description "Gateway de Impressão" -DisplayName "Meep - Gateway de Impressão" -StartupType Automatic
 }
 
-function CriarAppSettingsSemLocalId {
+function CriarAppSettingsSemLMqtt {
     # Código para criar o arquivo appsettings.json sem LocalId
     $ipv4Address = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress
     $arquivoJson = "C:\ClientHost\appsettings.json"
@@ -87,7 +87,7 @@ function CriarAppSettingsSemLocalId {
     }
 }
 
-function CriarAppSettingsComLocalId {
+function CriarAppSettingsComMqtt {
     # Código para criar o arquivo appsettings.json com LocalId
     # Obtenha o endereço IPv4 do computador
     $ipv4Address = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress
@@ -96,7 +96,7 @@ function CriarAppSettingsComLocalId {
     $arquivoJson = "C:\ClientHost\appsettings.json"
 
     # Solicitar o LocalId do cliente
-    $localId = Read-Host "Digite o LocalId do cliente"
+    $localId = Read-Host "Digite o Mqtt do cliente"
 
     # Defina o conteúdo JSON desejado com o endereço IPv4 atual e o LocalId do cliente
     $jsonConteudo = @"
@@ -160,8 +160,8 @@ do
     Write-Host "1. Criar Certificado"
     Write-Host "2. Criar Regras de Firewall"
     Write-Host "3. Criar Serviço"
-    Write-Host "4. Criar AppSettings (sem LocalId)"
-    Write-Host "5. Criar AppSettings (com LocalId)"
+    Write-Host "4. Criar AppSettings (sem Mqtt)"
+    Write-Host "5. Criar AppSettings (com Mqtt)"
     Write-Host "6. Iniciar Serviço"
     Write-Host "7. Sair"
 
