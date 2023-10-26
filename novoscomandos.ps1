@@ -42,7 +42,7 @@ function CriarServico {
 }
 
 function CriarAppSettingsSemLMqtt {
-    # Código para criar o arquivo appsettings.json sem LocalId
+    # Código para criar o arquivo appsettings.json sem Mqtt
     $ipv4Address = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress
     $arquivoJson = "C:\ClientHost\appsettings.json"
 
@@ -88,17 +88,17 @@ function CriarAppSettingsSemLMqtt {
 }
 
 function CriarAppSettingsComMqtt {
-    # Código para criar o arquivo appsettings.json com LocalId
+    # Código para criar o arquivo appsettings.json com Mqtt
     # Obtenha o endereço IPv4 do computador
     $ipv4Address = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress
 
     # Defina o caminho do arquivo de destino
     $arquivoJson = "C:\ClientHost\appsettings.json"
 
-    # Solicitar o LocalId do cliente
-    $localId = Read-Host "Digite o Mqtt do cliente"
+    # Solicitar o Mqtt do cliente
+    $mqtt = Read-Host "Digite o Mqtt do cliente"
 
-    # Defina o conteúdo JSON desejado com o endereço IPv4 atual e o LocalId do cliente
+    # Defina o conteúdo JSON desejado com o endereço IPv4 atual e o Mqtt do cliente
     $jsonConteudo = @"
 {
   "HttpServer": {
@@ -119,7 +119,7 @@ function CriarAppSettingsComMqtt {
     }
   },
   "Mqtt": {
-    "LocalId": "$localId",
+    "LocalId": "$mqtt",
     "PrinterIp": "$ipv4Address"
   },
   "Logging": {
