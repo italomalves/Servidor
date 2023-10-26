@@ -171,8 +171,8 @@ do
         "1" { CriarCertificado }
         "2" { CriarRegrasFirewall }
         "3" { CriarServico }
-        "4" { CriarAppSettingsSemLocalId }
-        "5" { CriarAppSettingsComLocalId }
+        "4" { CriarAppSettingsSemMqtt }
+        "5" { CriarAppSettingsComMqtt }
         "6" { IniciarServico }
         "7" { exit }
         default { Write-Host "Opção inválida. Tente novamente." }
